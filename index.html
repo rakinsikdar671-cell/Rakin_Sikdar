@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agency Home</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap">
+<style>
+body{margin:0;background:#F6F7F9}
+a:focus-visible,summary:focus-visible{outline:2px solid #2F5BFF;outline-offset:3px}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+details[open] .plus{transform:rotate(45deg)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,91,255,.5)}70%{box-shadow:0 0 0 9px rgba(47,91,255,0)}100%{box-shadow:0 0 0 0 rgba(47,91,255,0)}}
+.rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}
+.dot{animation:pulse 2s ease-out infinite}
+details[open] p{animation:rise .35s ease both}
+.lift{transition:transform .25s ease,box-shadow .25s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(14,17,22,.10)}
+.btn{transition:transform .2s ease,filter .2s ease}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+@media (prefers-reduced-motion:reduce){.rise,.dot,details[open] p{animation:none}.lift,.btn{transition:none}.lift:hover,.btn:hover{transform:none}}
+@keyframes reveal{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@supports (animation-timeline:view()){
+.reveal,.lift,section h2,details{animation:reveal linear backwards;animation-timeline:view();animation-range:entry 0% entry 45%}
+}
+@media (prefers-reduced-motion:reduce){.reveal,.lift,section h2,details{animation:none}}
+</style>
+</helmet>
+<div id="top" style="background: #F6F7F9; color: #0E1116; font-family: 'Inter', system-ui, sans-serif; font-size: 17px; line-height: 1.6; display: flex; flex-direction: column">
+
+<!-- NAV -->
+<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 20px clamp(20px, 5vw, 64px)">
+<a href="#top" style="color: #0E1116; text-decoration: none; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.02em">RAKIN_SIKDAR</a>
+<nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px; font-weight: 500">
+<a href="#results" style="color: #4B5565; text-decoration: none">Results</a>
+<a href="#services" style="color: #4B5565; text-decoration: none">Services</a>
+<a href="#process" style="color: #4B5565; text-decoration: none">Process</a>
+<a href="#faq" style="color: #4B5565; text-decoration: none">FAQ</a>
+<a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #0E1116; color: #FFFFFF; text-decoration: none">Book a call</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section style="padding: clamp(56px, 9vw, 120px) clamp(20px, 5vw, 64px) clamp(48px, 6vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center">
+<span class="rise d1" style="display: inline-flex; align-items: center; gap: 10px; min-height: 32px; padding: 0 16px; border-radius: 999px; border: 1px solid #D9DEE6; background: #FFFFFF; font-size: 14px; font-weight: 500; color: #4B5565"><span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}"></span>Paid ads for Meta, Google and TikTok</span>
+<h1 class="rise d2" style="margin: 0; max-width: 15ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(44px, 7.5vw, 96px); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance">Turn ad spend into <span style="color: {{accent}}">profit.</span></h1>
+<p class="rise d3" style="margin: 0; max-width: 54ch; font-size: 20px; color: #4B5565">[One or two sentences on how you help brands grow sales and keep ad spend profitable.]</p>
+<div class="rise d4" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
+<a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500">Book a call</a>
+<a class="btn" href="#results" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; border: 1px solid #C9D0DB; color: #0E1116; text-decoration: none; font-weight: 500">See our results</a>
+</div>
+</div>
+</section>
+
+<!-- LOGOS -->
+<section style="padding: 0 clamp(20px, 5vw, 64px) clamp(56px, 7vw, 96px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; padding-top: 40px; border-top: 1px solid #E3E6EB">
+<p style="margin: 0; font-size: 15px; color: #4B5565"><strong style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 28px; font-weight: 600; color: #0E1116">[000]+</strong>&nbsp; happy clients</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 40px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 18px; color: #6B7482">
+<span>[Client Logo]</span><span>[Client Logo]</span><span>[Client Logo]</span><span>[Client Logo]</span><span>[Client Logo]</span>
+</div>
+</div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #FFFFFF; border-top: 1px solid #E3E6EB">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Results</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Numbers speak louder than promises.</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client One]</h3>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[+000%]</span><span style="color: #4B5565">[Metric, e.g. sales growth]</span></div>
+<p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
+</article>
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client Two]</h3>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[-00%]</span><span style="color: #4B5565">[Metric, e.g. cost per acquisition]</span></div>
+<p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
+</article>
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client Three]</h3>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[0.0x]</span><span style="color: #4B5565">[Metric, e.g. return on ad spend]</span></div>
+<p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
+</article>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Services</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">One team for every ad channel.</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Meta Ads</h3>
+<p style="margin: 0; color: #4B5565">[Describe what you do on Facebook and Instagram: creative testing, audiences, scaling.]</p>
+<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about Meta</a>
+</article>
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Google Ads</h3>
+<p style="margin: 0; color: #4B5565">[Describe what you do on Search, Shopping and YouTube: keywords, feeds, bidding.]</p>
+<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about Google</a>
+</article>
+<article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">TikTok Ads</h3>
+<p style="margin: 0; color: #4B5565">[Describe what you do on TikTok: short-form creative, spark ads, scaling winners.]</p>
+<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about TikTok</a>
+</article>
+</div>
+</div>
+</section>
+
+<!-- COMPARISON -->
+<section style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #0E1116; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<h2 style="margin: 0; max-width: 18ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Why brands switch to RAKIN_SIKDAR.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div class="reveal" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 32px; border: 1px solid #2A313D; border-radius: 16px">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px; color: #AEB6C4">Other agencies</h3>
+<p style="margin: 0; color: #AEB6C4">[Slow replies and monthly reports nobody reads.]</p>
+<p style="margin: 0; color: #AEB6C4">[One-size-fits-all strategy copied between clients.]</p>
+<p style="margin: 0; color: #AEB6C4">[Juniors running your account after the sales call.]</p>
+</div>
+<div class="reveal" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: 16px; background: {{accent}}">
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">RAKIN_SIKDAR</h3>
+<p style="margin: 0">[Direct line to your strategist, answers within a day.]</p>
+<p style="margin: 0">[A plan built from your own numbers and margins.]</p>
+<p style="margin: 0">[Senior specialists on your account every week.]</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Process</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Three steps from audit to profit.</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div class="reveal" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 2px solid #0E1116">
+<span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #6B7482">Step 1</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Funnel audit</h3>
+<p style="margin: 0; color: #4B5565">[We review your accounts, tracking and funnel to find where money leaks.]</p>
+</div>
+<div class="reveal" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 2px solid #0E1116">
+<span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #6B7482">Step 2</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Campaign setup</h3>
+<p style="margin: 0; color: #4B5565">[We build campaigns, creative and reporting around your goals.]</p>
+</div>
+<div class="reveal" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 2px solid #0E1116">
+<span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #6B7482">Step 3</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Maximize profit</h3>
+<p style="margin: 0; color: #4B5565">[We test, cut what fails and scale what works, every week.]</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #FFFFFF; border-top: 1px solid #E3E6EB; border-bottom: 1px solid #E3E6EB">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<h2 style="margin: 0; max-width: 18ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">What clients say about working with us.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<figure class="lift" style="flex: 1 1 320px; min-width: 0; margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 32px; border-radius: 16px; background: #F6F7F9">
+<blockquote style="margin: 0; font-size: 19px">[A short quote about the results and what it was like to work with you.]</blockquote>
+<figcaption style="color: #4B5565"><strong style="color: #0E1116">[Client Name]</strong><br>[Title, Company]</figcaption>
+</figure>
+<figure class="lift" style="flex: 1 1 320px; min-width: 0; margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 32px; border-radius: 16px; background: #F6F7F9">
+<blockquote style="margin: 0; font-size: 19px">[A short quote about the results and what it was like to work with you.]</blockquote>
+<figcaption style="color: #4B5565"><strong style="color: #0E1116">[Client Name]</strong><br>[Title, Company]</figcaption>
+</figure>
+<figure class="lift" style="flex: 1 1 320px; min-width: 0; margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 32px; border-radius: 16px; background: #F6F7F9">
+<blockquote style="margin: 0; font-size: 19px">[A short quote about the results and what it was like to work with you.]</blockquote>
+<figcaption style="color: #4B5565"><strong style="color: #0E1116">[Client Name]</strong><br>[Title, Company]</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<h2 style="margin: 0; max-width: 18ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Meet the people behind your ads.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div class="reveal" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="height: 240px; margin-bottom: 16px; border-radius: 16px; background: #DDE2EA; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box; font-size: 13px; color: #4B5565">[Photo]</div>
+<strong style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 20px">[Name]</strong><span style="color: #4B5565">[Founder]</span>
+</div>
+<div class="reveal" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="height: 240px; margin-bottom: 16px; border-radius: 16px; background: #DDE2EA; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box; font-size: 13px; color: #4B5565">[Photo]</div>
+<strong style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 20px">[Name]</strong><span style="color: #4B5565">[Head of Sales]</span>
+</div>
+<div class="reveal" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="height: 240px; margin-bottom: 16px; border-radius: 16px; background: #DDE2EA; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box; font-size: 13px; color: #4B5565">[Photo]</div>
+<strong style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 20px">[Name]</strong><span style="color: #4B5565">[Head of Marketing]</span>
+</div>
+<div class="reveal" style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="height: 240px; margin-bottom: 16px; border-radius: 16px; background: #DDE2EA; display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box; font-size: 13px; color: #4B5565">[Photo]</div>
+<strong style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 20px">[Name]</strong><span style="color: #4B5565">[Social Media Lead]</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #FFFFFF; border-top: 1px solid #E3E6EB">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em">Questions, answered.</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E3E6EB">
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Meta ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Google ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach TikTok ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How often do you report results?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">What does it cost to work together?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+<details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">Do you manage campaigns on an ongoing basis?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px); background: #0E1116; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+<h2 style="margin: 0; max-width: 16ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(38px, 6vw, 76px); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance">Ready to scale your brand?</h2>
+<p style="margin: 0; max-width: 48ch; color: #AEB6C4">[One line on what happens on the call and how long it takes.]</p>
+<p style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[hello@youragency.com]</p>
+<span class="btn" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-weight: 500">Book a 15-minute call</span>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 28px clamp(20px, 5vw, 64px); font-size: 14px; color: #4B5565">
+<span>© 2026 RAKIN_SIKDAR. All rights reserved.</span>
+<nav style="display: flex; flex-wrap: wrap; gap: 8px 24px">
+<a href="#services" style="color: #4B5565; text-decoration: none">Services</a>
+<a href="#faq" style="color: #4B5565; text-decoration: none">FAQ</a>
+<a href="#top" style="color: #4B5565; text-decoration: none">Back to top</a>
+</nav>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2F5BFF","options":["#2F5BFF","#0F7B6C","#C2410C","#0E1116"]},"$preview":{"width":1440,"height":5800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#2F5BFF' };
+  }
+}
+</script>
+</body>
+</html>
