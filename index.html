@@ -18,7 +18,7 @@ summary{list-style:none;cursor:pointer}
 summary::-webkit-details-marker{display:none}
 details[open] .plus{transform:rotate(45deg)}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,91,255,.5)}70%{box-shadow:0 0 0 9px rgba(47,91,255,0)}100%{box-shadow:0 0 0 0 rgba(47,91,255,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(134,239,172,.6)}70%{box-shadow:0 0 0 9px rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}
 .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 .d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}
 .dot{animation:pulse 2s ease-out infinite}
@@ -50,14 +50,15 @@ details[open] p{animation:rise .35s ease both}
 </header>
 
 <!-- HERO -->
-<section style="padding: clamp(56px, 9vw, 120px) clamp(20px, 5vw, 64px) clamp(48px, 6vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center">
-<span class="rise d1" style="display: inline-flex; align-items: center; gap: 10px; min-height: 32px; padding: 0 16px; border-radius: 999px; border: 1px solid #D9DEE6; background: #FFFFFF; font-size: 14px; font-weight: 500; color: #4B5565"><span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}"></span>Paid ads for Meta, Google and TikTok</span>
-<h1 class="rise d2" style="margin: 0; max-width: 15ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(44px, 7.5vw, 96px); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance">Turn ad spend into <span style="color: {{accent}}">profit.</span></h1>
-<p class="rise d3" style="margin: 0; max-width: 54ch; font-size: 20px; color: #4B5565">[One or two sentences on how you help brands grow sales and keep ad spend profitable.]</p>
+<section style="position: relative; overflow: hidden; background: #000000; padding: clamp(72px, 10vw, 140px) clamp(20px, 5vw, 64px) clamp(72px, 9vw, 120px)">
+<canvas id="velaris-canvas" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none"></canvas>
+<div style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center">
+<span class="rise d1" style="display: inline-flex; align-items: center; gap: 10px; min-height: 32px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); font-size: 14px; font-weight: 500; color: #FFFFFF"><span class="dot" style="width: 8px; height: 8px; border-radius: 50%; background: #86EFAC"></span>Paid ads for Meta, Google and TikTok</span>
+<h1 class="rise d2" style="margin: 0; color: #FFFFFF; max-width: 15ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(44px, 7.5vw, 96px); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance">Turn ad spend into <span style="color: #86EFAC">profit.</span></h1>
+<p class="rise d3" style="margin: 0; max-width: 54ch; font-size: 20px; color: rgba(255,255,255,0.82)">[One or two sentences on how you help brands grow sales and keep ad spend profitable.]</p>
 <div class="rise d4" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
 <a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500">Book a call</a>
-<a class="btn" href="#results" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; border: 1px solid #C9D0DB; color: #0E1116; text-decoration: none; font-weight: 500">See our results</a>
+<a class="btn" href="#results" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); color: #FFFFFF; text-decoration: none; font-weight: 500">See our results</a>
 </div>
 </div>
 </section>
@@ -277,6 +278,118 @@ details[open] p{animation:rise .35s ease both}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2F5BFF","options":["#2F5BFF","#0F7B6C","#C2410C","#0E1116"]},"$preview":{"width":1440,"height":5800}}'>
 class Component extends DCLogic {
+  componentDidMount() {
+    const canvas = document.getElementById('velaris-canvas');
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl');
+    if (!gl) return;
+    const container = canvas.parentElement;
+    const vs = 'attribute vec2 position;varying vec2 vUv;void main(){vUv=position*0.5+0.5;gl_Position=vec4(position,0.0,1.0);}';
+    const fs = [
+      'precision highp float;',
+      'varying vec2 vUv;',
+      'uniform vec2 u_resolution;uniform float u_time;uniform float u_grain;uniform vec3 u_colors[4];uniform vec3 u_bg;uniform vec2 u_mouse;',
+      'vec3 permute(vec3 x){return mod(((x*34.0)+1.0)*x,289.0);}',
+      'float snoise(vec2 v){',
+      'const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);',
+      'vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);',
+      'vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);',
+      'vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod(i,289.0);',
+      'vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));',
+      'vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);',
+      'm=m*m;m=m*m;',
+      'vec3 x=2.0*fract(p*C.www)-1.0;vec3 h=abs(x)-0.5;vec3 ox=floor(x+0.5);vec3 a0=x-ox;',
+      'm*=1.79284291400159-0.85373472095314*(a0*a0+h*h);',
+      'vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;',
+      'return 130.0*dot(m,g);}',
+      'void main(){',
+      'vec2 uv=vUv;float ratio=u_resolution.x/u_resolution.y;',
+      'vec2 p=uv-0.5;p.x*=ratio;',
+      'vec2 mp=u_mouse-0.5;mp.x*=ratio;',
+      'vec2 q=p+mp*0.3;',
+      'float t=u_time*0.1;',
+      'float n1=snoise(q*0.4+vec2(t*0.2,-t*0.3));',
+      'float n2=snoise(q*0.55+vec2(-t*0.15,t*0.25)+n1*0.25);',
+      'float n3=snoise(q*0.75+vec2(t*0.1,-t*0.2)+n2*0.2);',
+      'vec3 col=u_bg;',
+      'float dist=length(p)*1.5;',
+      'float vignette=1.0-smoothstep(0.3,1.2,dist);',
+      'col=mix(col,u_colors[0],smoothstep(-0.2,0.5,n1)*0.85);',
+      'col=mix(col,u_colors[1],smoothstep(-0.1,0.6,n2)*0.7);',
+      'col=mix(col,u_colors[2],smoothstep(-0.3,0.4,n3)*0.6);',
+      'col=mix(col,u_colors[3],smoothstep(0.0,0.7,n1*n2)*0.5);',
+      'float glow=smoothstep(0.8,0.0,dist)*0.3;',
+      'col+=u_colors[1]*glow;',
+      'float md=length(p-mp);',
+      'col+=u_colors[0]*smoothstep(0.5,0.0,md)*0.4;',
+      'col=mix(col*0.2,col,vignette);',
+      'float grain=fract(sin(dot(uv,vec2(12.9898,78.233)))*43758.5453+u_time);',
+      'col+=(grain-0.5)*u_grain*0.1;',
+      'gl_FragColor=vec4(col,1.0);}'
+    ].join('\n');
+    const mk = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const program = gl.createProgram();
+    gl.attachShader(program, mk(gl.VERTEX_SHADER, vs));
+    gl.attachShader(program, mk(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(program);
+    gl.useProgram(program);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const pos = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(pos);
+    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+    const loc = (n) => gl.getUniformLocation(program, n);
+    const uRes = loc('u_resolution'), uTime = loc('u_time'), uGrain = loc('u_grain'), uColors = loc('u_colors'), uBg = loc('u_bg'), uMouse = loc('u_mouse');
+    const rgb = (hex) => { const h = hex.replace('#', ''); return [parseInt(h.slice(0, 2), 16) / 255, parseInt(h.slice(2, 4), 16) / 255, parseInt(h.slice(4, 6), 16) / 255]; };
+    const colors = new Float32Array(['#86efac', '#4ade80', '#059669', '#000000'].flatMap(rgb));
+    const bg = rgb('#000000');
+    const speed = 2.0, grain = 0.3;
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.max(1, Math.floor(container.clientWidth * dpr));
+      canvas.height = Math.max(1, Math.floor(container.clientHeight * dpr));
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    resize();
+    this._ro = new ResizeObserver(resize);
+    this._ro.observe(container);
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const target = { x: 0.5, y: 0.5 };
+    const cur = { x: 0.5, y: 0.5 };
+    this._move = (e) => {
+      const r = container.getBoundingClientRect();
+      target.x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+      target.y = Math.min(1, Math.max(0, 1 - (e.clientY - r.top) / r.height));
+    };
+    this._leave = () => { target.x = 0.5; target.y = 0.5; };
+    if (!reduce) {
+      container.addEventListener('pointermove', this._move);
+      container.addEventListener('pointerleave', this._leave);
+    }
+    this._container = container;
+    const draw = (t) => {
+      cur.x += (target.x - cur.x) * 0.06;
+      cur.y += (target.y - cur.y) * 0.06;
+      gl.uniform2f(uMouse, cur.x, cur.y);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform1f(uTime, t * 0.001 * speed);
+      gl.uniform1f(uGrain, grain);
+      gl.uniform3f(uBg, bg[0], bg[1], bg[2]);
+      gl.uniform3fv(uColors, colors);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      if (!reduce) this._raf = requestAnimationFrame(draw);
+    };
+    this._raf = requestAnimationFrame(draw);
+  }
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._ro) this._ro.disconnect();
+    if (this._container) {
+      this._container.removeEventListener('pointermove', this._move);
+      this._container.removeEventListener('pointerleave', this._leave);
+    }
+  }
   renderVals() {
     return { accent: this.props.accent ?? '#2F5BFF' };
   }
