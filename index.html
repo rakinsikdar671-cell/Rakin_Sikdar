@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Agency Home</title>
-<script src="./vendor/react.js"></script>
-<script src="./vendor/react-dom.js"></script>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAKIN_SIKDAR</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
 <style>
 body{margin:0;background:#F6F7F9}
 a:focus-visible,summary:focus-visible{outline:2px solid #2F5BFF;outline-offset:3px}
@@ -34,7 +29,10 @@ details[open] p{animation:rise .35s ease both}
 }
 @media (prefers-reduced-motion:reduce){.reveal,.lift,section h2,details{animation:none}}
 </style>
-</helmet>
+
+</head>
+<body>
+
 <div id="top" style="background: #F6F7F9; color: #0E1116; font-family: 'Inter', system-ui, sans-serif; font-size: 17px; line-height: 1.6; display: flex; flex-direction: column">
 
 <!-- NAV -->
@@ -57,7 +55,7 @@ details[open] p{animation:rise .35s ease both}
 <h1 class="rise d2" style="margin: 0; color: #FFFFFF; max-width: 15ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(44px, 7.5vw, 96px); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance">Turn ad spend into <span style="color: #86EFAC">profit.</span></h1>
 <p class="rise d3" style="margin: 0; max-width: 54ch; font-size: 20px; color: rgba(255,255,255,0.82)">[One or two sentences on how you help brands grow sales and keep ad spend profitable.]</p>
 <div class="rise d4" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px">
-<a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 500">Book a call</a>
+<a class="btn" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #2F5BFF; color: #FFFFFF; text-decoration: none; font-weight: 500">Book a call</a>
 <a class="btn" href="#results" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); color: #FFFFFF; text-decoration: none; font-weight: 500">See our results</a>
 </div>
 </div>
@@ -77,23 +75,23 @@ details[open] p{animation:rise .35s ease both}
 <section id="results" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px); background: #FFFFFF; border-top: 1px solid #E3E6EB">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
-<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Results</span>
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F5BFF">Results</span>
 <h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Numbers speak louder than promises.</h2>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client One]</h3>
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[+000%]</span><span style="color: #4B5565">[Metric, e.g. sales growth]</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: #2F5BFF">[+000%]</span><span style="color: #4B5565">[Metric, e.g. sales growth]</span></div>
 <p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
 </article>
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client Two]</h3>
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[-00%]</span><span style="color: #4B5565">[Metric, e.g. cost per acquisition]</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: #2F5BFF">[-00%]</span><span style="color: #4B5565">[Metric, e.g. cost per acquisition]</span></div>
 <p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
 </article>
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 24px; padding: 32px; border: 1px solid #E3E6EB; border-radius: 16px; background: #F6F7F9">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[Client Three]</h3>
-<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: {{accent}}">[0.0x]</span><span style="color: #4B5565">[Metric, e.g. return on ad spend]</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: #2F5BFF">[0.0x]</span><span style="color: #4B5565">[Metric, e.g. return on ad spend]</span></div>
 <p style="margin: 0; color: #4B5565">[One sentence on what you changed and over what period.]</p>
 </article>
 </div>
@@ -104,24 +102,24 @@ details[open] p{animation:rise .35s ease both}
 <section id="services" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
-<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Services</span>
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F5BFF">Services</span>
 <h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">One team for every ad channel.</h2>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Meta Ads</h3>
 <p style="margin: 0; color: #4B5565">[Describe what you do on Facebook and Instagram: creative testing, audiences, scaling.]</p>
-<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about Meta</a>
+<a href="#contact" style="margin-top: auto; color: #2F5BFF; font-weight: 500; text-decoration: none">Talk to us about Meta</a>
 </article>
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">Google Ads</h3>
 <p style="margin: 0; color: #4B5565">[Describe what you do on Search, Shopping and YouTube: keywords, feeds, bidding.]</p>
-<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about Google</a>
+<a href="#contact" style="margin-top: auto; color: #2F5BFF; font-weight: 500; text-decoration: none">Talk to us about Google</a>
 </article>
 <article class="lift" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E3E6EB">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 26px">TikTok Ads</h3>
 <p style="margin: 0; color: #4B5565">[Describe what you do on TikTok: short-form creative, spark ads, scaling winners.]</p>
-<a href="#contact" style="margin-top: auto; color: {{accent}}; font-weight: 500; text-decoration: none">Talk to us about TikTok</a>
+<a href="#contact" style="margin-top: auto; color: #2F5BFF; font-weight: 500; text-decoration: none">Talk to us about TikTok</a>
 </article>
 </div>
 </div>
@@ -138,7 +136,7 @@ details[open] p{animation:rise .35s ease both}
 <p style="margin: 0; color: #AEB6C4">[One-size-fits-all strategy copied between clients.]</p>
 <p style="margin: 0; color: #AEB6C4">[Juniors running your account after the sales call.]</p>
 </div>
-<div class="reveal" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: 16px; background: {{accent}}">
+<div class="reveal" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: 16px; background: #2F5BFF">
 <h3 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">RAKIN_SIKDAR</h3>
 <p style="margin: 0">[Direct line to your strategist, answers within a day.]</p>
 <p style="margin: 0">[A plan built from your own numbers and margins.]</p>
@@ -152,7 +150,7 @@ details[open] p{animation:rise .35s ease both}
 <section id="process" style="padding: clamp(56px, 8vw, 104px) clamp(20px, 5vw, 64px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
-<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{accent}}">Process</span>
+<span style="font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2F5BFF">Process</span>
 <h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance">Three steps from audit to profit.</h2>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
@@ -227,27 +225,27 @@ details[open] p{animation:rise .35s ease both}
 <h2 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em">Questions, answered.</h2>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #E3E6EB">
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Meta ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Meta ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Google ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach Google ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach TikTok ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How do you approach TikTok ads?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How often do you report results?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">How often do you report results?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">What does it cost to work together?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">What does it cost to work together?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 <details style="border-bottom: 1px solid #E3E6EB; padding: 22px 0">
-<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">Do you manage campaigns on an ongoing basis?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: {{accent}}; transition: transform 0.2s">+</span></summary>
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 21px">Do you manage campaigns on an ongoing basis?<span class="plus" style="flex: 0 0 auto; font-size: 28px; line-height: 1; color: #2F5BFF; transition: transform 0.2s">+</span></summary>
 <p style="margin: 16px 0 0; color: #4B5565">[Your answer.]</p>
 </details>
 </div>
@@ -260,7 +258,7 @@ details[open] p{animation:rise .35s ease both}
 <h2 style="margin: 0; max-width: 16ch; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; font-size: clamp(38px, 6vw, 76px); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance">Ready to scale your brand?</h2>
 <p style="margin: 0; max-width: 48ch; color: #AEB6C4">[One line on what happens on the call and how long it takes.]</p>
 <p style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 500; font-size: 22px">[hello@youragency.com]</p>
-<span class="btn" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-weight: 500">Book a 15-minute call</span>
+<span class="btn" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 999px; background: #2F5BFF; color: #FFFFFF; font-weight: 500">Book a 15-minute call</span>
 </div>
 </section>
 
@@ -275,10 +273,11 @@ details[open] p{animation:rise .35s ease both}
 </footer>
 
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2F5BFF","options":["#2F5BFF","#0F7B6C","#C2410C","#0E1116"]},"$preview":{"width":1440,"height":5800}}'>
-class Component extends DCLogic {
-  componentDidMount() {
+
+<script>
+(function(){
+
+  function init() {
     const canvas = document.getElementById('velaris-canvas');
     if (!canvas) return;
     const gl = canvas.getContext('webgl');
@@ -352,22 +351,22 @@ class Component extends DCLogic {
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
-    this._ro = new ResizeObserver(resize);
-    this._ro.observe(container);
+    window.__v_ro = new ResizeObserver(resize);
+    window.__v_ro.observe(container);
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const target = { x: 0.5, y: 0.5 };
     const cur = { x: 0.5, y: 0.5 };
-    this._move = (e) => {
+    window.__v_move = (e) => {
       const r = container.getBoundingClientRect();
       target.x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
       target.y = Math.min(1, Math.max(0, 1 - (e.clientY - r.top) / r.height));
     };
-    this._leave = () => { target.x = 0.5; target.y = 0.5; };
+    window.__v_leave = () => { target.x = 0.5; target.y = 0.5; };
     if (!reduce) {
-      container.addEventListener('pointermove', this._move);
-      container.addEventListener('pointerleave', this._leave);
+      container.addEventListener('pointermove', window.__v_move);
+      container.addEventListener('pointerleave', window.__v_leave);
     }
-    this._container = container;
+    window.__v_container = container;
     const draw = (t) => {
       cur.x += (target.x - cur.x) * 0.06;
       cur.y += (target.y - cur.y) * 0.06;
@@ -378,22 +377,13 @@ class Component extends DCLogic {
       gl.uniform3f(uBg, bg[0], bg[1], bg[2]);
       gl.uniform3fv(uColors, colors);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      if (!reduce) this._raf = requestAnimationFrame(draw);
+      if (!reduce) window.__v_raf = requestAnimationFrame(draw);
     };
-    this._raf = requestAnimationFrame(draw);
+    window.__v_raf = requestAnimationFrame(draw);
   }
-  componentWillUnmount() {
-    if (this._raf) cancelAnimationFrame(this._raf);
-    if (this._ro) this._ro.disconnect();
-    if (this._container) {
-      this._container.removeEventListener('pointermove', this._move);
-      this._container.removeEventListener('pointerleave', this._leave);
-    }
-  }
-  renderVals() {
-    return { accent: this.props.accent ?? '#2F5BFF' };
-  }
-}
+  
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
 </script>
 </body>
 </html>
